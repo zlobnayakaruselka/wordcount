@@ -16,4 +16,7 @@ jobs:
             - name: Test
               run: |
                   go build .
-                  ./wordcount 'go is awesome'
+                  ./wordcount '' | grep -E "^0$"
+                  ./wordcount 'ok' | grep -E "^1$"
+                  ./wordcount 'go is awesome' | grep -E "^3$"
+                  ./wordcount 'php - not so much' | grep -E "^5$"
